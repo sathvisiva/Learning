@@ -16,6 +16,8 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import java.util.Arrays;
+
 
 public class MainActivity extends Activity {
 
@@ -32,8 +34,9 @@ public class MainActivity extends Activity {
     private TimeInterpolator ANIMATION_INTERPOLATOR = new DecelerateInterpolator();
     private int ANIMATION_DURATION = 3500;
     private int mHalfHeight;
+    private CustomAnimator animator = new CustomAnimator(); // added for custom animator
 
-    @Override
+  /*  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final View view = getLayoutInflater().inflate(R.layout.activity_main, null);
@@ -44,6 +47,31 @@ public class MainActivity extends Activity {
                 mHalfHeight = view.getHeight() / 2;
                 mEditModeContainer.setTranslationY(mHalfHeight);
                 mEditModeContainer.setAlpha(0f);
+            }
+        });
+
+        setContentView(view);
+
+        retrieveViews();
+
+        startAnimation();
+    }*/
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        final View view = getLayoutInflater().inflate(R.layout.activity_main, null);
+        view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                v.removeOnLayoutChangeListener(this);
+                mHalfHeight = view.getHeight() / 2;
+                mEditModeContainer.setTranslationY(mHalfHeight);
+                mEditModeContainer.setAlpha(0f);
+                // Pass the calculated height to animator
+                animator.setEditModeHalfHeight(mHalfHeight);
             }
         });
 
@@ -76,7 +104,7 @@ public class MainActivity extends Activity {
         mEditFragmentContainer = (FrameLayout) findViewById(R.id.edit_mode_fragment_container);
     }
 
-    private void startAnimation() {
+    /*private void startAnimation() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -85,7 +113,9 @@ public class MainActivity extends Activity {
                 fadeOutToBottom(mSecondGroup, true);
                 stickTo(mFirstSpacer, mTv1, true);
                 slideInToTop(mEditModeContainer, true);
+
                 mEditModeContainer.setVisibility(View.VISIBLE);
+               // mSecondSpacer.setVisibility(View.VISIBLE);
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
@@ -95,6 +125,7 @@ public class MainActivity extends Activity {
                         unstickFrom(mFirstSpacer, mTv2, true);
                         fadeInToTop(mSecondGroup, true);
                         unfocus(mTv2, mFirstGroup, true);
+                        mSecondSpacer.setVisibility(View.INVISIBLE);
                     }
                 }, 6000);
             }
@@ -201,5 +232,25 @@ public class MainActivity extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }*/
+
+    private void startAnimation() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                animator.setAnimatorViews(mMainContainer, mTv1, mFirstGroup, Arrays.asList(new View[]{mSecondGroup, mSecondSpacer}), mFirstSpacer, mEditModeContainer, Arrays.asList(new View[]{}));
+//				animator.setAnimatorViews(mMainContainer, mTv4, mSecondGroup, Arrays.asList(new View[]{}), mSecondSpacer, mEditModeContainer, Arrays.asList(new View[]{mFirstGroup, mFirstSpacer}));
+                animator.prepareAnimation();
+                animator.start();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        animator.prepareRevert();
+                        animator.start();
+                    }
+                }, 6000);
+            }
+        }, 2000);
     }
 }
