@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">learning</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="From">From</string>
+    <string name="To">To</string>
+    <string name="pick_time">Pick time</string>
+    <string name="icon_calender">&#xf073;</string>
+    <string name="icon_from">&#xf041;</string>
+    <string name="icon_time">&#xf017;</string>
+
+
+    <string name="selectdate">Pick time</string>
+    <string-array name="Time">
+        <item>AM</item>
+        <item>PM</item>
+        <item>ANY</item>
+    </string-array>
+
+    <string-array name="cities">
+        <item >Chennai</item>
+        <item >Coimbatore</item>
+        <item >Trichy</item>
+        <item >Banglore</item>
+    </string-array>
+</resources>
