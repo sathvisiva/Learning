@@ -5,11 +5,10 @@ import android.graphics.Rect;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.AutoCompleteTextView;
+
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -86,7 +85,12 @@ public class MainActivity extends Activity {
             }
         });
 
-
+    mTv1.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            stopAnimation();
+        }
+    });
 
     }
 
@@ -129,7 +133,7 @@ public class MainActivity extends Activity {
                     }
                 }, 6000);*/
             }
-        }, 2000);
+        }, 600);
     }
 
     private void stopAnimation(){
@@ -139,7 +143,7 @@ public class MainActivity extends Activity {
                 animator.prepareRevert();
                 animator.start();
             }
-        }, 2000);
+        }, 600);
 
     }
 }
