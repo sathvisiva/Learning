@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="/home/sathvi/Learning/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="/home/sathvi/Learning/app/build/intermediates/pre-dexed/debug/classes-434a4fe528fe16d2b38a0ef1e14341ab225b16db.jar" />
+    </item>
+    <item
         jar="/home/sathvi/Templates/learning1/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"

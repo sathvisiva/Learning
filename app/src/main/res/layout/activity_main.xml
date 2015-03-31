@@ -211,12 +211,11 @@
         android:paddingTop="@dimen/view_height"
         android:visibility="invisible">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:clickable="true"
-            android:orientation="vertical"
-            android:paddingTop="@dimen/margin">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@android:color/transparent">
 
             <View
                 android:layout_width="fill_parent"
@@ -230,15 +229,30 @@
                 android:layout_height="fill_parent"
                 android:background="#00897B">
 
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin"
+                    android:background="@android:color/transparent">
 
+                <android.support.v7.widget.RecyclerView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+                </RelativeLayout>
+
+                </FrameLayout>
+        </RelativeLayout>
             </FrameLayout>
-        </LinearLayout>
-
-    </FrameLayout>
-
-
-
-
 
 
     </FrameLayout>
+
+
+
+
+
+
