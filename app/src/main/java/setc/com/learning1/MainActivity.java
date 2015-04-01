@@ -37,12 +37,12 @@ public class MainActivity extends Activity {
     private LinearLayout mSecondGroup;
     private View mFirstSpacer, mSecondSpacer;
     private EditText mTv2, mTv7;
-    private final String[] myDataset = { "Chennai", "coimbatore", "Cuddalore", "Chidambarm",
-            "Madurai", "Vellore", "Trichy"};
+    private String[] myDataset ;
     private TimeInterpolator ANIMATION_INTERPOLATOR = new DecelerateInterpolator();
     private int ANIMATION_DURATION = 3500;
     private int mHalfHeight;
     private CustomAnimator animator = new CustomAnimator(); // added for custom animator
+    DummyDB db = new DummyDB();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +86,7 @@ public class MainActivity extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
                 String theText = s.toString();
-
+                myDataset = db.getCityList(theText);
             }
         });
 
@@ -99,25 +99,10 @@ public class MainActivity extends Activity {
         }
     }); */
 
-        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MyAdapter mAdapter = new MyAdapter(myDataset);
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
-                getApplicationContext(),
-                new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        mTv2.setText(myDataset[position]);
-                        stopAnimation();
-
-                    }
-                }));
-
 
     }
+
+
 
     private void retrieveViews() {
         mMainContainer = (FrameLayout) findViewById(R.id.main_container);
@@ -139,6 +124,7 @@ public class MainActivity extends Activity {
 
         mEditModeContainer = (FrameLayout) findViewById(R.id.edit_mode_container);
         mEditFragmentContainer = (FrameLayout) findViewById(R.id.edit_mode_fragment_container);
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
     }
 
     private void startAnimation() {
