@@ -72,6 +72,34 @@ public class MainActivity extends Activity {
                 startAnimation();
             }
         });
+
+
+
+
+/*    mTv1.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            stopAnimation();
+        }
+    }); */
+
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        MyAdapter mAdapter = new MyAdapter(myDataset);
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
+                getApplicationContext(),
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        mTv2.setText(myDataset[position]);
+                        stopAnimation();
+
+                    }
+                }));
+
         mTv2.addTextChangedListener(new TextWatcher() {
 
             @Override
@@ -91,18 +119,7 @@ public class MainActivity extends Activity {
         });
 
 
-
-/*    mTv1.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            stopAnimation();
-        }
-    }); */
-
-
     }
-
-
 
     private void retrieveViews() {
         mMainContainer = (FrameLayout) findViewById(R.id.main_container);
@@ -124,7 +141,6 @@ public class MainActivity extends Activity {
 
         mEditModeContainer = (FrameLayout) findViewById(R.id.edit_mode_container);
         mEditFragmentContainer = (FrameLayout) findViewById(R.id.edit_mode_fragment_container);
-        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
     }
 
     private void startAnimation() {
