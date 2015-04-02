@@ -5,7 +5,7 @@ import android.graphics.Rect;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
-
+import android.content.Context;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
     private int mHalfHeight;
     private CustomAnimator animator = new CustomAnimator(); // added for custom animator
     DummyDB db = new DummyDB();
+    private static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,10 +87,10 @@ public class MainActivity extends Activity {
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        MyAdapter mAdapter = new MyAdapter(myDataset);
+        MyAdapter mAdapter = new MyAdapter(myDataset,context,mTv2);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
+    /*    mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
                 getApplicationContext(),
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
@@ -98,7 +99,7 @@ public class MainActivity extends Activity {
                         stopAnimation();
 
                     }
-                }));
+                }));*/
 
         mTv2.addTextChangedListener(new TextWatcher() {
 
@@ -113,8 +114,13 @@ public class MainActivity extends Activity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
                 String theText = s.toString();
                 myDataset = db.getCityList(theText);
+
+                MyAdapter mAdapter = new MyAdapter(myDataset,context,mTv2);
+                mRecyclerView.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
             }
         });
 

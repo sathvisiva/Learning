@@ -7,12 +7,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
+import android.content.Context;
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implements View.OnClickListener {
     private String[] itemsData;
-    public MyAdapter(String[] itemsData) {
+    private static Context sContext;
+    private TextView mfocused;
+    public MyAdapter(String[] itemsData, Context context, TextView focused) {
         this.itemsData = itemsData;
+        this.sContext = context;
+        this.mfocused = focused;
     }
     // Create new views (invoked by the layout manager)
     @Override
@@ -23,6 +27,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 .inflate(R.layout.item_layout, null);
 // create ViewHolder
         ViewHolder viewHolder = new ViewHolder(itemLayoutView);
+        viewHolder.txtViewTitle.setOnClickListener(MyAdapter.this);
+        viewHolder.txtViewTitle.setTag(viewHolder);
         return viewHolder;
     }
     // Replace the contents of a view (invoked by the layout manager)
@@ -49,4 +55,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         int len = (null == itemsData) ? 0 : itemsData.length;
         return len;
     }
+
+    @Override
+    public void onClick(View view){
+            ViewHolder viewHolder = (ViewHolder) view.getTag();
+        if(view.getId() == viewHolder.txtViewTitle.getId()){
+            this.mfocused.setText(viewHolder.txtViewTitle.getText());
+            System.out.println(viewHolder.txtViewTitle.getText());
+
+        }
+    }
+
 }
