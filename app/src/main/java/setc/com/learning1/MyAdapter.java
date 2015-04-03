@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.content.Context;
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implements View.OnClickListener {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder>  {
     private String[] itemsData;
     private static Context sContext;
     private TextView mfocused;
@@ -27,7 +27,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implem
                 .inflate(R.layout.item_layout, null);
 // create ViewHolder
         ViewHolder viewHolder = new ViewHolder(itemLayoutView);
-        viewHolder.txtViewTitle.setOnClickListener(MyAdapter.this);
+   //     viewHolder.txtViewTitle.setOnClickListener(MyAdapter.this);
         viewHolder.txtViewTitle.setTag(viewHolder);
         return viewHolder;
     }
@@ -56,14 +56,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> implem
         return len;
     }
 
-    @Override
-    public void onClick(View view){
-            ViewHolder viewHolder = (ViewHolder) view.getTag();
-        if(view.getId() == viewHolder.txtViewTitle.getId()){
-            this.mfocused.setText(viewHolder.txtViewTitle.getText());
-            System.out.println(viewHolder.txtViewTitle.getText());
 
-        }
-    }
 
 }

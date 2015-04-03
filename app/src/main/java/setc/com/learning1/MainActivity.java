@@ -37,13 +37,17 @@ public class MainActivity extends Activity {
     private LinearLayout mSecondGroup;
     private View mFirstSpacer, mSecondSpacer;
     private EditText mTv2, mTv7;
-    private String[] myDataset ;
+    private EditText focused;
+    private String[] RecentSearch = {"Chennai", "Trichy","madurai","Coimbatore" };
+    private String[] myDataset;
     private TimeInterpolator ANIMATION_INTERPOLATOR = new DecelerateInterpolator();
     private int ANIMATION_DURATION = 3500;
     private int mHalfHeight;
     private CustomAnimator animator = new CustomAnimator(); // added for custom animator
     DummyDB db = new DummyDB();
     private static Context context;
+    private RecyclerView mRecyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,43 +67,50 @@ public class MainActivity extends Activity {
         });
 
         setContentView(view);
-
-
         retrieveViews();
 
-        mTv2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                startAnimation();
-            }
-        });
 
 
 
 
-/*    mTv1.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            stopAnimation();
-        }
-    }); */
 
-        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        myDataset = RecentSearch;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         MyAdapter mAdapter = new MyAdapter(myDataset,context,mTv2);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-    /*    mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
+        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(
                 getApplicationContext(),
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        mTv2.setText(myDataset[position]);
+                        focused.setText(myDataset[position]);
                         stopAnimation();
+                        myDataset = RecentSearch;
 
                     }
-                }));*/
+                }));
+
+        mTv2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                focused = mTv2;
+                startAnimation(mTv2);
+            }
+        });
+        mTv7.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                focused = mTv7;
+                myDataset = RecentSearch;
+                MyAdapter mAdapter = new MyAdapter(myDataset,context,mTv2);
+                mRecyclerView.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
+                startAnimation(mTv7);
+
+            }
+        });
 
         mTv2.addTextChangedListener(new TextWatcher() {
 
@@ -116,9 +127,35 @@ public class MainActivity extends Activity {
             public void afterTextChanged(Editable s) {
                 RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
                 String theText = s.toString();
+                System.out.println(theText);
+                if(theText.length() == 1){
+                    myDataset = RecentSearch;
+                }else
+                    myDataset = db.getCityList(theText);
+                MyAdapter mAdapter = new MyAdapter(myDataset,context,mTv2);
+                mRecyclerView.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
+            }
+        });
+
+        mTv7.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+                String theText = s.toString();
                 myDataset = db.getCityList(theText);
 
-                MyAdapter mAdapter = new MyAdapter(myDataset,context,mTv2);
+                MyAdapter mAdapter = new MyAdapter(myDataset,context,mTv7);
                 mRecyclerView.setAdapter(mAdapter);
                 mAdapter.notifyDataSetChanged();
             }
@@ -134,9 +171,10 @@ public class MainActivity extends Activity {
 
         mFirstGroup = (RelativeLayout) findViewById(R.id.first_group_container);
         mTv1 = (TextView) findViewById(R.id.from);
-       mTv2 = (EditText) findViewById(R.id.editText);
-      mTv3 = (TextView) findViewById(R.id.textView2);
-      /*  mTv7 = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView2);*/
+        mTv2 = (EditText) findViewById(R.id.editText);
+        mTv3 = (TextView) findViewById(R.id.textView2);
+        mTv7 = (EditText)findViewById(R.id.editText2);
+
         mFirstSpacer = findViewById(R.id.first_spacer);
 
         mSecondGroup = (LinearLayout) findViewById(R.id.second_group_container);
@@ -149,22 +187,15 @@ public class MainActivity extends Activity {
         mEditFragmentContainer = (FrameLayout) findViewById(R.id.edit_mode_fragment_container);
     }
 
-    private void startAnimation() {
+    private void startAnimation(View viewStick) {
+        final View viewStick1 = viewStick;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                animator.setAnimatorViews(mMainContainer, mTv2, mFirstGroup, Arrays.asList(new View[]{mSecondGroup, mSecondSpacer}), mFirstSpacer, mEditModeContainer, Arrays.asList(new View[]{}));
-			//animator.setAnimatorViews(mMainContainer, mTv4, mSecondGroup, Arrays.asList(new View[]{}), mSecondSpacer, mEditModeContainer, Arrays.asList(new View[]{mFirstGroup, mFirstSpacer}));
+                animator.setAnimatorViews(mMainContainer, viewStick1, mFirstGroup, Arrays.asList(new View[]{mSecondGroup, mSecondSpacer}), mFirstSpacer, mEditModeContainer, Arrays.asList(new View[]{}));
                 animator.prepareAnimation();
                 animator.start();
 
-        /*        new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        animator.prepareRevert();
-                        animator.start();
-                    }
-                }, 6000);*/
             }
         }, 600);
     }

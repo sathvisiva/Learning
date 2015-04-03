@@ -13,7 +13,7 @@ public class DummyDB {
 
     public DummyDB() {
 
-        String data = "Chennai,Coimbatore,cuddalore"+
+        String data = "Chennai,Coimbatore,cuddalore,"+
                 "Argentina,	Armenia, Australia,	Austria,Azerbaijan,Bahamas,Bahrain,Bangladesh,Barbados,"+
 
                 "United Kingdom,United States,Uruguay,Uzbekistan,Vanuatu,Vatican City,Venezuela,Vietnam,Yemen,Zambia,Zimbabwe";
@@ -42,6 +42,7 @@ public class DummyDB {
         }
         String[] matched1 = new String[matched.size()];
        matched1 = matched.toArray(matched1);
+        matched1  = (matched1.length == 0) ? matched1 : matched1;
         return matched1;
     }
 

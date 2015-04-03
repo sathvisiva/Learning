@@ -5,4 +5,15 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="white_background_wh">
+
+        <item name="android:background">@drawable/bg</item>
+        <item name="android:layout_marginTop">@dimen/card_margin_top</item>
+
+        <item name="android:layout_marginBottom">@dimen/card_margin_bottom</item>
+
+        <item name="android:padding">@dimen/white_background_padding</item>
+
+    </style>
+
 </resources>

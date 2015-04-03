@@ -5,4 +5,8 @@
     <dimen name="view_height">16dip</dimen>
     <dimen name="margin">16dip</dimen>
     <dimen name="separator_height">2dip</dimen>
+    <dimen name="card_margin_top">40dp</dimen>
+
+    <dimen name="card_margin_bottom">350dp</dimen>
+    <dimen name="white_background_padding">15dp</dimen>
 </resources>

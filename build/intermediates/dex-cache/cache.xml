@@ -2,11 +2,25 @@
 <items version="2" >
 
     <item
-        jar="/home/sathvi/Learning/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
+        jar="/home/sathvi/Learning/Learning/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="/home/sathvi/Learning/Learning/app/build/intermediates/pre-dexed/debug/classes-b42b9f6e5629e1a10141046cbaeb258e3db7a8ba.jar" />
+    </item>
+    <item
+        jar="/home/sathvi/Learning/Learning/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/home/sathvi/Learning/Learning/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-b79d575c4db6a80403368684e73093202ac33208.jar" />
+    </item>
+    <item
+        jar="/home/sathvi/Learning/Learning/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
-        <dex dex="/home/sathvi/Learning/app/build/intermediates/pre-dexed/debug/classes-434a4fe528fe16d2b38a0ef1e14341ab225b16db.jar" />
+        <dex dex="/home/sathvi/Learning/Learning/app/build/intermediates/pre-dexed/debug/classes-14349c800e28ce29c6e9b286b783ad1398860d5b.jar" />
     </item>
     <item
         jar="/home/sathvi/Templates/learning1/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
@@ -16,25 +30,18 @@
         <dex dex="/home/sathvi/Templates/learning1/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-e8ddc2dd8052892365aa1f3466f2fe5746591ec1.jar" />
     </item>
     <item
+        jar="/home/sathvi/Learning/Learning/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/home/sathvi/Learning/Learning/app/build/intermediates/pre-dexed/debug/classes-b7711b58c7991c07b5459b03edc04f855f79dbc4.jar" />
+    </item>
+    <item
         jar="/home/sathvi/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.3/support-annotations-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
         <dex dex="/home/sathvi/Templates/learning1/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-e1e4a5646b65891219d5453c0bb410b37be9afd7.jar" />
-    </item>
-    <item
-        jar="/home/sathvi/Learning/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/libs/internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/home/sathvi/Learning/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-da329ad21af4929c17c4cf57c8bc0712bbfebadd.jar" />
-    </item>
-    <item
-        jar="/home/sathvi/Learning/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="/home/sathvi/Learning/app/build/intermediates/pre-dexed/debug/classes-c28e536e8ad81e506cac5e33be89b50d6c2c4861.jar" />
     </item>
     <item
         jar="/home/sathvi/Templates/learning1/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/classes.jar"
@@ -49,13 +56,6 @@
         revision="21.1.2"
         sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
         <dex dex="/home/sathvi/Templates/learning1/app/build/intermediates/pre-dexed/debug/classes-9afc947808389892689b04457619dd4402bcf2f1.jar" />
-    </item>
-    <item
-        jar="/home/sathvi/Learning/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/home/sathvi/Learning/app/build/intermediates/pre-dexed/debug/classes-69a8910ca8d57a1e26cc710e60cfbdb07b536d81.jar" />
     </item>
 
 </items>
