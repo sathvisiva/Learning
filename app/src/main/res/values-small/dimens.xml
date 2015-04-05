@@ -1,0 +1,18 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="main_card_left">12dip</dimen>
+    <dimen name="main_card_top">9dip</dimen>
+    <dimen name="hyphen_left">9dip</dimen>
+    <dimen name="busNo_top">4dip</dimen>
+    <dimen name="via_bottom">9dip</dimen>
+    <dimen name="serviceClass_top">4dip</dimen>
+    <dimen name="seats_left">15dip</dimen>
+    <dimen name="seats_start">15dip</dimen>
+    <dimen name="seatsText_right">10dip</dimen>
+    <dimen name="seatsText_end">15dip</dimen>
+    <dimen name="text_size_medium">17sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="seats_size_small">10sp</dimen>
+</resources>

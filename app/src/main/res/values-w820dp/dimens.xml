@@ -1,6 +1,16 @@
 <resources>
-    <!-- Example customization of dimensions originally defined in res/values/dimens.xml
-         (such as screen margins) for screens with more than 820dp of available width. This
-         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
-    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="main_card_left">15dip</dimen>
+    <dimen name="main_card_top">10dip</dimen>
+    <dimen name="hyphen_left">10dip</dimen>
+    <dimen name="busNo_top">5dip</dimen>
+    <dimen name="via_bottom">10dip</dimen>
+    <dimen name="serviceClass_top">5dip</dimen>
+    <dimen name="seats_left">16dip</dimen>
+    <dimen name="seats_start">16dip</dimen>
+    <dimen name="seatsText_right">16dip</dimen>
+    <dimen name="seatsText_end">16dip</dimen>
+    <dimen name="seats_size_small">12sp</dimen>
 </resources>

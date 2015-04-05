@@ -3,4 +3,16 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+   <!-- <string name="main_card_left">@dimen/main_card_left</string>
+    <string name="main_card_top">@dimen/main_card_top</string>
+    <string name="hyphen_left"></string>
+    <string name="busNo_top"></string>
+    <string name="via_bottom"></string>
+    <string name="serviceClass_top"></string>
+    <string name="seats_left"></string>
+    <string name="seats_start"></string>
+    <string name="seatsText_right"></string>
+    <string name="seatsText_end"></string>
+    <string name="text_size_medium"></string>
+    <string name="text_size_small"></string>-->
 </resources>

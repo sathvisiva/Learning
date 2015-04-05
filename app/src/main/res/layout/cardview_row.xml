@@ -15,22 +15,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="05:00 am"
             android:id="@+id/startTime"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@android:color/black" />
+            android:layout_marginLeft="@dimen/main_card_left"
+            android:layout_marginTop="@dimen/main_card_top"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size_medium" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="-"
-            android:id="@+id/textView2"
+            android:id="@+id/hyphen"
             android:layout_alignTop="@+id/startTime"
             android:layout_toRightOf="@+id/startTime"
             android:layout_toEndOf="@+id/startTime"
@@ -40,60 +40,59 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="12:00 pm (9 hrs)"
             android:id="@+id/departTime"
-            android:layout_alignTop="@+id/textView2"
-            android:layout_toRightOf="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2"
-            android:textColor="@android:color/darker_gray" />
+            android:layout_alignTop="@+id/hyphen"
+            android:layout_toRightOf="@+id/hyphen"
+            android:layout_toEndOf="@+id/hyphen"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/text_size_medium" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="908C"
             android:id="@+id/busNo"
             android:layout_below="@+id/startTime"
             android:layout_alignLeft="@+id/startTime"
             android:layout_alignStart="@+id/startTime"
-            android:layout_marginTop="5dp"
-            android:textColor="@android:color/darker_gray" />
+            android:layout_marginTop="@dimen/busNo_top"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/text_size_small" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="via salem"
             android:id="@+id/via"
             android:textColor="@android:color/darker_gray"
             android:layout_alignTop="@+id/serviceClass"
             android:layout_alignLeft="@+id/busNo"
             android:layout_alignStart="@+id/busNo"
-            android:layout_marginBottom="10dp" />
+            android:textSize="@dimen/text_size_small" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Ultra Deluxe"
             android:id="@+id/serviceClass"
             android:textColor="@android:color/darker_gray"
             android:layout_below="@+id/busNo"
-            android:layout_toRightOf="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2"
-            android:layout_marginTop="5dp" />
+            android:layout_toRightOf="@+id/hyphen"
+            android:layout_toEndOf="@+id/hyphen"
+            android:layout_marginTop="@dimen/serviceClass_top"
+            android:textSize="@dimen/text_size_small" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Kumbakonam corp."
             android:id="@+id/corporation"
             android:layout_above="@+id/serviceClass"
             android:layout_alignLeft="@+id/departTime"
             android:layout_alignStart="@+id/departTime"
-            android:textColor="@android:color/darker_gray" />
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/text_size_small" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,40 +100,52 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="35"
             android:id="@+id/seats"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginLeft="@dimen/seats_left"
+            android:layout_marginStart="@dimen/seats_start"
             android:layout_alignTop="@+id/departTime"
             android:layout_toRightOf="@+id/departTime"
-            android:layout_toEndOf="@+id/departTime" />
+            android:layout_toEndOf="@+id/departTime"
+            android:textSize="@dimen/text_size_medium" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="seats"
-            android:id="@+id/textView10"
+            android:id="@+id/seatsText"
             android:textColor="@android:color/darker_gray"
             android:layout_alignBottom="@+id/departTime"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginRight="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_toRightOf="@+id/seats" />
+            android:layout_marginRight="@dimen/seatsText_right"
+            android:layout_marginEnd="@dimen/seatsText_end"
+            android:layout_toRightOf="@+id/seats"
+            android:textSize="@dimen/seats_size_small" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="500"
             android:id="@+id/fare"
             android:gravity="center_horizontal"
             android:background="@color/ColorPrimary"
             android:textColor="@android:color/white"
-            android:layout_below="@+id/corporation"
             android:layout_alignLeft="@+id/seats"
             android:layout_alignStart="@+id/seats"
-            android:layout_alignRight="@+id/textView10"
-            android:layout_alignEnd="@+id/textView10" />
+            android:layout_alignRight="@+id/seatsText"
+            android:textSize="@dimen/text_size_medium"
+            android:layout_marginBottom="@dimen/via_bottom"
+            android:layout_marginTop="@dimen/fare_top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_below="@+id/via"
+            android:layout_toLeftOf="@+id/serviceClass"
+            android:layout_toStartOf="@+id/serviceClass"
+            android:textSize="@dimen/dummy_text" />
+
 
     </RelativeLayout>
 
