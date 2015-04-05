@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ColorPrimary">#00897B</color>
+    <color name="ColorPrimaryDark">#00695C</color>
+    <color name="textColorPrimary">#ffffff</color>
+    <color name="apptheme_color">#1dbdaf</color>
+    <color name="seat_Avail">#00897B</color>
+    <color name="few_seat_Avail">#FFc200</color>
+    <color name="gray">#2F4F4F</color>
+</resources>
